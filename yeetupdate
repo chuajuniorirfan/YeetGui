@@ -38,7 +38,7 @@ local function notif(str,dur)
 	})
 end
 
--- // Lol
+-- Instances:
 
 local Yeet = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
@@ -48,6 +48,8 @@ local TextBox = Instance.new("TextBox")
 local Title = Instance.new("TextLabel")
 local GoTo = Instance.new("TextButton")
 local FEFling = Instance.new("TextButton")
+local Kick = Instance.new("TextButton")
+local Rejoin = Instance.new("TextButton")
 
 Yeet.Name = "Yeet"
 Yeet.Parent = game.CoreGui
@@ -74,7 +76,7 @@ LOL.Name = "LOL"
 LOL.Parent = MainFrame
 LOL.BackgroundColor3 = Color3.fromRGB(139, 139, 139)
 LOL.BorderSizePixel = 0
-LOL.Position = UDim2.new(0.158168063, 0, 0.506541193, 0)
+LOL.Position = UDim2.new(0.158168063, 0, 0.427593827, 0)
 LOL.Size = UDim2.new(0.697630703, 0, 0.140875906, 0)
 LOL.Font = Enum.Font.GothamBlack
 LOL.Text = "Get THEM!!"
@@ -131,7 +133,7 @@ GoTo.Name = "GoTo"
 GoTo.Parent = MainFrame
 GoTo.BackgroundColor3 = Color3.fromRGB(139, 139, 139)
 GoTo.BorderSizePixel = 0
-GoTo.Position = UDim2.new(0.158168063, 0, 0.690751731, 0)
+GoTo.Position = UDim2.new(0.158168063, 0, 0.585488558, 0)
 GoTo.Size = UDim2.new(0.697630703, 0, 0.140875906, 0)
 GoTo.Font = Enum.Font.GothamBlack
 GoTo.Text = "GoTo"
@@ -143,7 +145,6 @@ GoTo.MouseButton1Click:connect(function()
 	local Target = gplr(TextBox.Text)
 	if Target[1] then
 		Target = Target[1]
-		wait(.7)
 		lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
 	end
 end)
@@ -167,10 +168,10 @@ FEFling.MouseButton1Click:connect(function()
 		wait(2)
 		message:Destroy()
 	end)
-	
+
 	local mouse = game.Players.LocalPlayer:GetMouse()
 	local groot = nil
-	
+
 	mouse.KeyDown:connect(function(k)
 		if k == "z" then
 			spawn(function()
@@ -179,7 +180,7 @@ FEFling.MouseButton1Click:connect(function()
 				wait(8)
 				message:Destroy()
 			end)
-			
+
 			local ch = game.Players.LocalPlayer.Character
 			local prt=Instance.new("Model", workspace)
 			local z1 =  Instance.new("Part", prt)
@@ -198,13 +199,13 @@ FEFling.MouseButton1Click:connect(function()
 			wait(5)
 			game.Players.LocalPlayer.Character=ch
 			wait(6)
-			
+
 			local plr = game.Players.LocalPlayer
 			mouse = plr:GetMouse()
 			local Hum = Instance.new("Humanoid")
 			Hum.Parent = game.Players.LocalPlayer.Character
 			local root =  game.Players.LocalPlayer.Character.HumanoidRootPart
-			
+
 			for i,v in pairs(plr.Character:GetChildren()) do
 				if v ~= root and  v.Name ~= "Humanoid" then
 					v:Destroy()
@@ -220,16 +221,16 @@ FEFling.MouseButton1Click:connect(function()
 			game:GetService('RunService').RenderStepped:connect(function()
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
 			end)
-			
+
 			power = 999999
 			power = power*10
-			
+
 			wait(.1)
 			local bambam = Instance.new("BodyThrust")
 			bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
 			bambam.Force = Vector3.new(power,0,power)
 			bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position 
-			
+
 			local plr = game.Players.LocalPlayer
 			local torso = root
 			local flying = true
@@ -238,7 +239,7 @@ FEFling.MouseButton1Click:connect(function()
 			local lastctrl = {f = 0, b = 0, l = 0, r = 0}
 			local maxspeed = 120
 			local speed = 15
-			
+
 			groot = root
 			function Fly()
 				local bg = Instance.new("BodyGyro", torso)
@@ -348,17 +349,72 @@ FEFling.MouseButton1Click:connect(function()
 	end)
 end)
 
-local function DZDLPN_fake_script()
+Kick.Name = "Kick"
+Kick.Parent = MainFrame
+Kick.BackgroundColor3 = Color3.fromRGB(139, 139, 139)
+Kick.BorderSizePixel = 0
+Kick.Position = UDim2.new(0.158168063, 0, 0.774962246, 0)
+Kick.Size = UDim2.new(0.697630703, 0, 0.140875906, 0)
+Kick.Font = Enum.Font.GothamBlack
+Kick.Text = "Kick Player(In Progress)"
+Kick.TextColor3 = Color3.fromRGB(0, 0, 0)
+Kick.TextScaled = true
+Kick.TextSize = 14.000
+Kick.TextWrapped = true
+Kick.MouseButton1Click:connect(function()
+	local Target = gplr(TextBox.Text)
+	if Target[1] then
+		Target = Target[1]
+		
+		Target:Kick("GOT KICK BY YEET LMAO")
+	end
+end)
+
+Rejoin.Name = "Rejoin"
+Rejoin.Parent = MainFrame
+Rejoin.BackgroundColor3 = Color3.fromRGB(139, 139, 139)
+Rejoin.BorderSizePixel = 0
+Rejoin.Position = UDim2.new(0.670915961, 0, -0.00398511393, 0)
+Rejoin.Size = UDim2.new(0.326525927, 0, 0.114560105, 0)
+Rejoin.Font = Enum.Font.GothamBlack
+Rejoin.Text = "Rejoin"
+Rejoin.TextColor3 = Color3.fromRGB(0, 0, 0)
+Rejoin.TextScaled = true
+Rejoin.TextSize = 14.000
+Rejoin.TextWrapped = true
+Rejoin.MouseButton1Click:connect(function()
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "Reset Button";
+		Text = "Try Say /rejoin will be automatically Rejoin.";
+		Icon = "";
+		Duration = 5;
+	})
+	
+	local PlayerAdded = game.Players.PlayerAdded
+	local Player = game.Players.LocalPlayer
+	local Prefix = "/"
+	local TeleportService = game:GetService("TeleportService")
+	
+	PlayerAdded:Connect(function()
+		Player.Chatted:Connect(function(Message)
+			if Message:lower() == Prefix.. "rejoin" then
+				TeleportService:Teleport(game.PlaceId, Player)
+			end
+		end)
+	end)
+end)
+
+local function TBVK_fake_script()
 	local script = Instance.new('LocalScript', Yeet)
 
 	local v = script.Parent
 	local hotkey = Enum.KeyCode.V
-	
+
 	local UIS = game:GetService("UserInputService")
 	local open = false
-	
-	
-	
+
+
+
 	UIS.InputBegan:Connect(function(key, gp)
 		if key.KeyCode == hotkey then
 			if UIS:GetFocusedTextBox() == nil then
@@ -373,4 +429,4 @@ local function DZDLPN_fake_script()
 		end
 	end)
 end
-coroutine.wrap(DZDLPN_fake_script)()
+coroutine.wrap(TBVK_fake_script)()
