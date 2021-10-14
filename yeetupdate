@@ -87,7 +87,7 @@ LOL.MouseButton1Click:connect(function()
 		Target = Target[1]
 
 		local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
-		Thrust.Force = Vector3.new(1000,1000,1000)
+		Thrust.Force = Vector3.new(10000,10000,10000)
 		Thrust.Name = "YeetForce"
 		repeat
 			lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
