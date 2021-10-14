@@ -29,14 +29,12 @@ local function gplr(String)
 	return Found 
 end
 
-local function notif(str,dur)
-	game:FindService("StarterGui"):SetCore("SendNotification", {
-		Title = "Yeet Gui(Update by Juni0r_YTxD)",
-		Text = str,
-		Icon = "rbxassetid://2005276185",
-		Duration = dur or 3
-	})
-end
+game:GetService("StarterGui"):SetCore("SendNotification", {
+	Title = "UPDATED!";
+	Text = "Yeet Gui(Update by Juni0r_YTxD)";
+	Icon = "";
+	Duration = 5;
+})
 
 -- Instances:
 
@@ -48,6 +46,7 @@ local TextBox = Instance.new("TextBox")
 local Title = Instance.new("TextLabel")
 local GoTo = Instance.new("TextButton")
 local Rejoin = Instance.new("TextButton")
+local Invis = Instance.new("TextButton")
 
 Yeet.Name = "Yeet"
 Yeet.Parent = game.CoreGui
@@ -57,8 +56,8 @@ MainFrame.Name = "MainFrame"
 MainFrame.Parent = Yeet
 MainFrame.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
 MainFrame.BorderSizePixel = 0
-MainFrame.Position = UDim2.new(0.0830291957, 0, 0.383697808, 0)
-MainFrame.Size = UDim2.new(0.322080284, 0, 0.377733588, 0)
+MainFrame.Position = UDim2.new(0.0830291957, 0, 0.388605744, 0)
+MainFrame.Size = UDim2.new(0.322080284, 0, 0.372825623, 0)
 MainFrame.Active = true
 MainFrame.Draggable = true
 
@@ -88,7 +87,7 @@ LOL.MouseButton1Click:connect(function()
 		Target = Target[1]
 
 		local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
-		Thrust.Force = Vector3.new(9999,9999,9999)
+		Thrust.Force = Vector3.new(1000,1000,1000)
 		Thrust.Name = "YeetForce"
 		repeat
 			lp.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
@@ -96,7 +95,12 @@ LOL.MouseButton1Click:connect(function()
 			game:FindService("RunService").Heartbeat:wait()
 		until not Target.Character:FindFirstChild("Head")
 	else
-		notif("Invalid player")
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Invalid!";
+			Text = "Invalid Player.";
+			Icon = "";
+			Duration = 5;
+		})
 	end
 end)
 
@@ -107,7 +111,7 @@ TextBox.Position = UDim2.new(0.104815863, 0, 0.210526317, 0)
 TextBox.Size = UDim2.new(0.807365417, 0, 0.191471338, 0)
 TextBox.Font = Enum.Font.GothamBlack
 TextBox.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.PlaceholderText = "Who do i destroy(can be shortened)"
+TextBox.PlaceholderText = "Who do i destroy(can be short name)"
 TextBox.Text = ""
 TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextBox.TextScaled = true
@@ -118,8 +122,8 @@ Title.Name = "Title"
 Title.Parent = MainFrame
 Title.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
 Title.BorderSizePixel = 0
-Title.Position = UDim2.new(0, 0, -0.17368421, 0)
-Title.Size = UDim2.new(1, 0, 0.17368421, 0)
+Title.Position = UDim2.new(0, 0, -0.173684195, 0)
+Title.Size = UDim2.new(1, 0, 0.134704545, 0)
 Title.Font = Enum.Font.GothamBlack
 Title.Text = "Yeet Gui (Updated)"
 Title.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -151,8 +155,8 @@ Rejoin.Name = "Rejoin"
 Rejoin.Parent = MainFrame
 Rejoin.BackgroundColor3 = Color3.fromRGB(139, 139, 139)
 Rejoin.BorderSizePixel = 0
-Rejoin.Position = UDim2.new(0.336638331, 0, -0.00398511393, 0)
-Rejoin.Size = UDim2.new(0.326525927, 0, 0.114560105, 0)
+Rejoin.Position = UDim2.new(0.0242401715, 0, 0.0255917385, 0)
+Rejoin.Size = UDim2.new(0.336108685, 0, 0.0720755681, 0)
 Rejoin.Font = Enum.Font.GothamBlack
 Rejoin.Text = "Rejoin"
 Rejoin.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -181,7 +185,35 @@ Rejoin.MouseButton1Click:Connect(function()
 	end)
 end)
 
-local function EYFO_fake_script()
+Invis.Name = "Invisible"
+Invis.Parent = MainFrame
+Invis.BackgroundColor3 = Color3.fromRGB(139, 139, 139)
+Invis.BorderSizePixel = 0
+Invis.Position = UDim2.new(0.633704066, 0, 0.0255917385, 0)
+Invis.Size = UDim2.new(0.336108685, 0, 0.0720755681, 0)
+Invis.Font = Enum.Font.GothamBlack
+Invis.Text = "Invisible"
+Invis.TextColor3 = Color3.fromRGB(0, 0, 0)
+Invis.TextScaled = true
+Invis.TextSize = 14.000
+Invis.TextWrapped = true
+Invis.MouseButton1Click:connect(function()
+	game:GetService("Players").PlayerAdded:connect(function(player)
+		player.CharacterAdded:connect(function()
+			local character = workspace:WaitForChild(player.Name)
+			for i,v in pairs(character:children()) do
+				if v:IsA("Part") or v:IsA("MeshPart") then
+					v.Transparency = 1
+				elseif v:IsA("Accessory") then
+					v:WaitForChild("Handle").Transparency = 1
+				end
+			end
+			character:WaitForChild("Head"):FindFirstChildOfClass("Decal"):Destroy()
+		end)
+	end)
+end)
+
+local function ZLBHOM_fake_script()
 	local script = Instance.new('LocalScript', Yeet)
 
 	local v = script.Parent
@@ -189,8 +221,6 @@ local function EYFO_fake_script()
 	
 	local UIS = game:GetService("UserInputService")
 	local open = false
-	
-	
 	
 	UIS.InputBegan:Connect(function(key, gp)
 		if key.KeyCode == hotkey then
@@ -206,4 +236,4 @@ local function EYFO_fake_script()
 		end
 	end)
 end
-coroutine.wrap(EYFO_fake_script)()
+coroutine.wrap(ZLBHOM_fake_script)()
